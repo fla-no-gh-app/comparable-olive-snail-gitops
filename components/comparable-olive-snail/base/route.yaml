@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: comparable-olive-snail
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: comparable-olive-snail 
+  name: comparable-olive-snail
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: comparable-olive-snail
+    weight: 100 
